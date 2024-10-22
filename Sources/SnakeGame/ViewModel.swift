@@ -9,7 +9,6 @@ public final class ViewModel {
   public private(set) var snake = Snake()
   public private(set) var foodPosition = IdentifiablePoint(id: -1, point: .zero)
   public private(set) var canvasSize: Size
-  public private(set) var timeFrame = 0
 
   private var task: Task<Void, any Error>? {
     didSet { oldValue?.cancel() }
@@ -72,6 +71,7 @@ public final class ViewModel {
   public func reset() {
     foodPosition.point = randomPosition()
     snake.place(to: randomPosition())
+    level = 1
     let isLeftHalf = snake.head.point.x < canvasSize.width / 2
     let isTopHalf = snake.head.point.y < canvasSize.height / 2
     switch (isLeftHalf, isTopHalf) {

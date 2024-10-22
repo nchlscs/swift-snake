@@ -66,7 +66,6 @@ public struct GameView: View {
     .onAppear(perform: model.reset)
     .onTapGesture(perform: model.nextPhase)
     .gesture(DragGesture().onEnded(updateDirection))
-    .onChange(of: model.timeFrame, model.nextTimeFrame)
     .frame(width: canvasSize.width, height: canvasSize.height)
   }
 }
